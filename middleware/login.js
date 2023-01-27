@@ -13,14 +13,14 @@ exports.obrigatorio = (req, res, next) => {
 }
 
 
-exports.opcional = (req, res, next) => {
-    try{
-        const token = req.headers.authorization.split(' ')[1]
-        const decode = jwt.verify(token, process.env.JWT_KEY)
-        req.usuario = decode;
-        next(); 
+// exports.opcional = (req, res, next) => {
+//     try{
+//         const token = req.headers.authorization.split(' ')[1]
+//         const decode = jwt.verify(token, process.env.JWT_KEY)
+//         req.usuario = decode;
+//         next(); 
 
-    }  catch (error) {
-        next();
-    }
-}
+//     }  catch (error) {
+//         next();
+//     }
+// }

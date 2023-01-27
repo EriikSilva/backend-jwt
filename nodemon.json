@@ -1,5 +1,5 @@
 {
     "env":{
-        "JWT_KEY": "sua senha aqui"
+        "JWT_KEY": "caixa_magica"
     }
 }

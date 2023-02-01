@@ -72,9 +72,9 @@ router.post("/cadastro", (req, res, next) => {
             //CADASTRANDO
             conn.query(
               `
-                      INSERT INTO usuarios (email, senha) VALUES (?,?)
+                      INSERT INTO usuarios (email, nome ,senha) VALUES (?,?,?)
                       `,
-              [req.body.email, hash],
+              [req.body.email, req.body.nome ,hash],
               (error, result) => {
                 conn.release();
                 if (error) {
@@ -86,6 +86,7 @@ router.post("/cadastro", (req, res, next) => {
                   usuarioCriado: {
                     id_usuario: result.insertId,
                     email: req.body.email,
+                    nome: req.body.nome
                   },
                 };
                 return res.status(201).send(response);
@@ -135,7 +136,8 @@ router.post("/login", (req, res, next) => {
           res.status(200).send({ 
             message: "autenticado com sucesso",
             token:token,
-            email:result[0].email
+            email:result[0].email,
+            nome: result[0].nome
         });
         }else{
             return res.status(401).send({ message: "Falha na autenticação" });

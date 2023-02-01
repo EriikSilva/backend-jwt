@@ -51,7 +51,7 @@ router.post("/cadastro", (req, res, next) => {
         error: error,
       });
     }
-
+    //CHECANDO SE USER JA EXISTE
     conn.query(
       "SELECT * FROM usuarios WHERE email = ?",
       [req.body.email],
@@ -69,7 +69,7 @@ router.post("/cadastro", (req, res, next) => {
             if (errBcrypt) {
               return res.status(500).send({ error: errBcrypt });
             }
-
+            //CADASTRANDO
             conn.query(
               `
                       INSERT INTO usuarios (email, senha) VALUES (?,?)
@@ -133,8 +133,9 @@ router.post("/login", (req, res, next) => {
           });
                     
           res.status(200).send({ 
-            message: "atutenticado com sucesso",
-            token:token
+            message: "autenticado com sucesso",
+            token:token,
+            email:result[0].email
         });
         }else{
             return res.status(401).send({ message: "Falha na autenticação" });

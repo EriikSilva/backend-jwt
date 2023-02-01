@@ -38,6 +38,9 @@ Projeto que busca adicionar jwt(jsonwebtoken) no backend juntamente com Mysql
   - Necessario criar uma database chamada ```jwt``` create database jwt ou mude o nome para a sua database no arquivo mysql.js
   - copie e cole os comandos do arquivo jwt.sql nessa database que estão pasta raiz desse projeto
   - OBS: Criei 2 tabelas ```usuarios``` e ```produtos``` a tabela de produtos foi usada para alguns testes mas pode ser ignorada
+- Validações
+  - Validação de email e senha 
+  - Validação de email ao criar uma conta. Verifica se email ja existe no banco de dados. EMAIL(UNIQUE)
 - Exemplos abaixo utilizando o postman
 
 
